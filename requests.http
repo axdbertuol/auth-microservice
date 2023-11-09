@@ -1,0 +1,12 @@
+POST http://localhost:3000/api/v1/auth/email/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "secret"
+}
+
+######
+
+GET http://localhost:3000/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6eyJpZCI6MSwibmFtZSI6IkFkbWluIiwiX19lbnRpdHkiOiJSb2xlIn0sInNlc3Npb25JZCI6MSwiaWF0IjoxNjk5Mzk2OTc2LCJleHAiOjE2OTkzOTc4NzZ9.nWPXlWPEuRH9StUhA7AWquzghJMsL8tAOdSYsquc3vo

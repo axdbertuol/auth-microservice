@@ -136,6 +136,9 @@ devDependencies:
   '@types/node':
     specifier: 18.18.7
     version: 18.18.7
+  '@types/nodemailer':
+    specifier: ^6.4.14
+    version: 6.4.14
   '@types/passport-anonymous':
     specifier: 1.0.4
     version: 1.0.4
@@ -2494,6 +2497,12 @@ packages:
     resolution: {integrity: sha512-bw+lEsxis6eqJYW8Ql6+yTqkE6RuFtsQPSe5JxXbqYRFQEER5aJA9a5UH9igqDWm3X4iLHIKOHlnAXLM4mi7uQ==}
     dependencies:
       undici-types: 5.26.5
+
+  /@types/nodemailer@6.4.14:
+    resolution: {integrity: sha512-fUWthHO9k9DSdPCSPRqcu6TWhYyxTBg382vlNIttSe9M7XfsT06y0f24KHXtbnijPGGRIcVvdKHTNikOI6qiHA==}
+    dependencies:
+      '@types/node': 18.18.7
+    dev: true
 
   /@types/passport-anonymous@1.0.4:
     resolution: {integrity: sha512-LjR02lSnhPOH1L+j6HT0DTZKH/TIQ2gwmFdQGxRxg+5x/LFq79vQhMK+wYBr+Mtmo7VFtuf/uPLk7lPzz+hKwg==}
