@@ -17,6 +17,12 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "auth": ["./node_modules/kommshop-types/src/auth/types.d.ts"],
+      "auth-enum": ["./node_modules/kommshop-types/src/auth/enum.ts"],
+      "backend-utils": ["./node_modules/kommshop-types/src/utils"]
+    }
   }
 }
