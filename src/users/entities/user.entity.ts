@@ -11,6 +11,7 @@ import {
   BeforeInsert,
   BeforeUpdate,
 } from 'typeorm';
+import { User as UserEntity } from 'auth';
 import { Role } from '../../roles/entities/role.entity';
 import { Status } from '../../statuses/entities/status.entity';
 import { FileEntity } from '../../files/entities/file.entity';
@@ -20,7 +21,7 @@ import { AuthProvidersEnum } from 'src/auth/auth-providers.enum';
 import { Exclude, Expose } from 'class-transformer';
 
 @Entity()
-export class User extends EntityHelper {
+export class User extends EntityHelper implements UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -51,7 +52,7 @@ export class User extends EntityHelper {
     }
   }
 
-  @Column({ default: AuthProvidersEnum.email })
+  @Column({ default: AuthProvidersEnum.credentials })
   @Expose({ groups: ['me', 'admin'] })
   provider: string;
 

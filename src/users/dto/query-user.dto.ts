@@ -8,8 +8,13 @@ import {
 } from 'class-validator';
 import { Transform, Type, plainToInstance } from 'class-transformer';
 import { User } from '../entities/user.entity';
+import {
+  FilterUserDto as FilterUserDtoInterface,
+  SortUserDto as SortUserDtoInterface,
+  QueryUserDto as QueryUserDtoInterface,
+} from 'auth';
 
-export class FilterUserDto {
+export class FilterUserDto implements FilterUserDtoInterface {
   @ApiProperty({ type: Role })
   @IsOptional()
   @ValidateNested({ each: true })
@@ -17,7 +22,7 @@ export class FilterUserDto {
   roles?: Role[] | null;
 }
 
-export class SortUserDto {
+export class SortUserDto implements SortUserDtoInterface {
   @ApiProperty()
   @IsString()
   orderBy: keyof User;
@@ -27,7 +32,7 @@ export class SortUserDto {
   order: string;
 }
 
-export class QueryUserDto {
+export class QueryUserDto implements QueryUserDtoInterface {
   @ApiProperty({
     required: false,
   })

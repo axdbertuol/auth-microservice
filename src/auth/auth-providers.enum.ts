@@ -1,5 +1,5 @@
 export enum AuthProvidersEnum {
-  email = 'email',
+  credentials = 'credentials',
   facebook = 'facebook',
   google = 'google',
   twitter = 'twitter',

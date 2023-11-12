@@ -60,7 +60,7 @@ export class AuthService {
       );
     }
 
-    if (user.provider !== AuthProvidersEnum.email) {
+    if (user.provider !== AuthProvidersEnum.credentials) {
       throw new HttpException(
         {
           status: HttpStatus.UNPROCESSABLE_ENTITY,

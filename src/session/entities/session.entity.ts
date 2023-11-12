@@ -6,11 +6,13 @@ import {
   PrimaryGeneratedColumn,
   DeleteDateColumn,
 } from 'typeorm';
+import { Session as SessionInterface } from 'auth';
+
 import { User } from '../../users/entities/user.entity';
 import { EntityHelper } from 'src/utils/entity-helper';
 
 @Entity()
-export class Session extends EntityHelper {
+export class Session extends EntityHelper implements SessionInterface {
   @PrimaryGeneratedColumn()
   id: number;
 
