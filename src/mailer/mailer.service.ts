@@ -12,9 +12,9 @@ export class MailerService {
     this.transporter = nodemailer.createTransport({
       host: configService.get('mail.host', { infer: true }),
       port: configService.get('mail.port', { infer: true }),
-      ignoreTLS: configService.get('mail.ignoreTLS', { infer: true }),
+      // ignoreTLS: configService.get('mail.ignoreTLS', { infer: true }),
       secure: configService.get('mail.secure', { infer: true }),
-      requireTLS: configService.get('mail.requireTLS', { infer: true }),
+      // requireTLS: configService.get('mail.requireTLS', { infer: true }),
       auth: {
         user: configService.get('mail.user', { infer: true }),
         pass: configService.get('mail.password', { infer: true }),
