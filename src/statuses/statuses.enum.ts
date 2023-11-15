@@ -1,4 +1,3 @@
-export enum StatusEnum {
-  'active' = 1,
-  'inactive' = 2,
-}
+import { StatusEnum } from 'shared-kommshop-enum';
+
+export { StatusEnum };

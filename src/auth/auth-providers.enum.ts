@@ -1,7 +1,2 @@
-export enum AuthProvidersEnum {
-  email = 'email',
-  facebook = 'facebook',
-  google = 'google',
-  twitter = 'twitter',
-  apple = 'apple',
-}
+import { AuthProvidersEnum } from 'shared-kommshop-enum';
+export { AuthProvidersEnum };

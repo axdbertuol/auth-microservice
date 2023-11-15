@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindOptions } from 'src/utils/types/find-options.type';
 import { DeepPartial, Repository } from 'typeorm';
 import { Forgot } from './entities/forgot.entity';
-import { NullableType } from '../utils/types/nullable.type';
+import { NullableType, FindOptions } from 'shared-kommshop-types';
 
 @Injectable()
 export class ForgotService {

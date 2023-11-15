@@ -18,9 +18,10 @@ import bcrypt from 'bcryptjs';
 import { EntityHelper } from 'src/utils/entity-helper';
 import { AuthProvidersEnum } from 'src/auth/auth-providers.enum';
 import { Exclude, Expose } from 'class-transformer';
+import { User as IUser } from 'shared-kommshop-types';
 
 @Entity()
-export class User extends EntityHelper {
+export class User extends EntityHelper implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -51,7 +52,7 @@ export class User extends EntityHelper {
     }
   }
 
-  @Column({ default: AuthProvidersEnum.email })
+  @Column({ default: AuthProvidersEnum.credentials })
   @Expose({ groups: ['me', 'admin'] })
   provider: string;
 

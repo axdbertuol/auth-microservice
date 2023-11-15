@@ -1,4 +1,2 @@
-export enum RoleEnum {
-  'admin' = 1,
-  'user' = 2,
-}
+import { RoleEnum } from 'shared-kommshop-enum';
+export { RoleEnum };

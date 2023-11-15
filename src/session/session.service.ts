@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindOptions } from 'src/utils/types/find-options.type';
 import { DeepPartial, Not, Repository } from 'typeorm';
 import { Session } from './entities/session.entity';
-import { NullableType } from '../utils/types/nullable.type';
+import { NullableType, FindOptions } from 'shared-kommshop-types';
 import { User } from 'src/users/entities/user.entity';
 
 @Injectable()

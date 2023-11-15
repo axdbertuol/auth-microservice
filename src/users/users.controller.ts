@@ -22,8 +22,10 @@ import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from 'src/roles/roles.guard';
 import { infinityPagination } from 'src/utils/infinity-pagination';
 import { User } from './entities/user.entity';
-import { InfinityPaginationResultType } from '../utils/types/infinity-pagination-result.type';
-import { NullableType } from '../utils/types/nullable.type';
+import {
+  NullableType,
+  InfinityPaginationResultType,
+} from 'shared-kommshop-types';
 import { QueryUserDto } from './dto/query-user.dto';
 
 @ApiBearerAuth()

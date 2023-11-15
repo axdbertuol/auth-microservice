@@ -20,9 +20,8 @@
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"],
-      "auth": ["./node_modules/kommshop-types/src/auth/types.d.ts"],
-      "auth-enum": ["./node_modules/kommshop-types/src/auth/enum.ts"],
-      "backend-utils": ["./node_modules/kommshop-types/src/utils"]
+      "shared-kommshop-types": ["./node_modules/kommshop-types/src/"],
+      "shared-kommshop-enum": ["./node_modules/kommshop-types/src/enum.ts"]
     }
   }
 }

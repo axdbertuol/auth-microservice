@@ -10,9 +10,10 @@ import { Allow } from 'class-validator';
 import { EntityHelper } from 'src/utils/entity-helper';
 import appConfig from '../../config/app.config';
 import { AppConfig } from 'src/config/config.type';
+import { FileEntity as IFileEntity } from 'shared-kommshop-types';
 
 @Entity({ name: 'file' })
-export class FileEntity extends EntityHelper {
+export class FileEntity extends EntityHelper implements IFileEntity {
   @ApiProperty({ example: 'cbcfa8b8-3a25-4adb-a9c6-e325f0d0f3ae' })
   @PrimaryGeneratedColumn('uuid')
   id: string;

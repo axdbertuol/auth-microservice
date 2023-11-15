@@ -186,7 +186,7 @@ devDependencies:
     version: 29.7.0(@types/node@18.18.7)(ts-node@10.9.1)
   kommshop-types:
     specifier: github:axdbertuol/-types-kommshop
-    version: git@github.com+axdbertuol/-types-kommshop/c8c21287da9ac917da939f7c082fea76119fc327(@nestjs/platform-express@10.2.8)(pg@8.11.3)(reflect-metadata@0.1.13)(rxjs@7.8.1)(ts-node@10.9.1)
+    version: github.com/axdbertuol/-types-kommshop/b2eccdd3b046ba3ed53022c4d8fc658da0b08bc8(pg@8.11.3)(ts-node@10.9.1)
   prettier:
     specifier: 3.0.3
     version: 3.0.3
@@ -1810,6 +1810,7 @@ packages:
       rxjs: 7.8.1
       typeorm: 0.3.17(pg@8.11.3)(ts-node@10.9.1)
       uuid: 9.0.0
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -8285,6 +8286,7 @@ packages:
   /uuid@9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
+    dev: false
 
   /uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
@@ -8542,29 +8544,20 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  git@github.com+axdbertuol/-types-kommshop/c8c21287da9ac917da939f7c082fea76119fc327(@nestjs/platform-express@10.2.8)(pg@8.11.3)(reflect-metadata@0.1.13)(rxjs@7.8.1)(ts-node@10.9.1):
-    resolution: {commit: c8c21287da9ac917da939f7c082fea76119fc327, repo: git@github.com:axdbertuol/-types-kommshop.git, type: git}
-    id: git@github.com+axdbertuol/-types-kommshop/c8c21287da9ac917da939f7c082fea76119fc327
+  github.com/axdbertuol/-types-kommshop/b2eccdd3b046ba3ed53022c4d8fc658da0b08bc8(pg@8.11.3)(ts-node@10.9.1):
+    resolution: {tarball: https://codeload.github.com/axdbertuol/-types-kommshop/tar.gz/b2eccdd3b046ba3ed53022c4d8fc658da0b08bc8}
+    id: github.com/axdbertuol/-types-kommshop/b2eccdd3b046ba3ed53022c4d8fc658da0b08bc8
     name: kommshop-types
-    version: 0.2.0
+    version: 0.22.4
     dependencies:
-      '@nestjs/common': 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      '@nestjs/core': 10.2.8(@nestjs/common@10.2.8)(@nestjs/platform-express@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      '@nestjs/typeorm': 10.0.0(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)(typeorm@0.3.17)
-      class-transformer: 0.5.1
-      class-validator: 0.14.0
       mongoose: 7.6.4
       typeorm: 0.3.17(pg@8.11.3)(ts-node@10.9.1)
     transitivePeerDependencies:
       - '@aws-sdk/credential-providers'
       - '@google-cloud/spanner'
       - '@mongodb-js/zstd'
-      - '@nestjs/microservices'
-      - '@nestjs/platform-express'
-      - '@nestjs/websockets'
       - '@sap/hana-client'
       - better-sqlite3
-      - encoding
       - hdb-pool
       - ioredis
       - kerberos
@@ -8577,8 +8570,6 @@ packages:
       - pg-native
       - pg-query-stream
       - redis
-      - reflect-metadata
-      - rxjs
       - snappy
       - sql.js
       - sqlite3

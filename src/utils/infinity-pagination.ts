@@ -1,5 +1,7 @@
-import { IPaginationOptions } from './types/pagination-options';
-import { InfinityPaginationResultType } from './types/infinity-pagination-result.type';
+import {
+  IPaginationOptions,
+  InfinityPaginationResultType,
+} from 'shared-kommshop-types';
 
 export const infinityPagination = <T>(
   data: T[],

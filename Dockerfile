@@ -1,10 +1,13 @@
 FROM node:18.18.2-alpine
 
-RUN apk add --no-cache bash
-RUN npm i -g @nestjs/cli typescript ts-node
+RUN apk add --no-cache bash git openssh-client
+RUN npm i -g @nestjs/cli typescript ts-node pnpm
+
+RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 COPY package*.json /tmp/app/
-RUN cd /tmp/app && npm install
+WORKDIR /tmp/app
+RUN --mount=type=ssh pnpm install
 
 COPY . /home/node/app
 RUN cp -a /tmp/app/node_modules /home/node/app
@@ -17,6 +20,6 @@ RUN sed -i 's/\r//g' /opt/startup.dev.sh
 
 WORKDIR /home/node/app
 RUN if [ ! -f .env ]; then cp env-example .env; fi
-RUN npm run build
+RUN pnpm build
 
 CMD ["/opt/startup.dev.sh"]
