@@ -10,7 +10,7 @@ import { IsNotExist } from 'src/utils/validators/is-not-exists.validator';
 import { FileEntity } from 'src/files/entities/file.entity';
 import { IsExist } from 'src/utils/validators/is-exists.validator';
 import { lowerCaseTransformer } from 'src/utils/transformers/lower-case.transformer';
-import { UpdateUserDto as IUpdateUserDto } from 'shared-kommshop-types';
+import { UpdateUserDto as IUpdateUserDto } from 'kommshop-types';
 
 export class UpdateUserDto
   extends PartialType(CreateUserDto)

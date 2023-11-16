@@ -10,7 +10,7 @@ import {
 import { User } from '../../users/entities/user.entity';
 import { Allow } from 'class-validator';
 import { EntityHelper } from 'src/utils/entity-helper';
-import { Forgot as IForgot } from 'shared-kommshop-types';
+import { Forgot as IForgot } from 'kommshop-types';
 
 @Entity()
 export class Forgot extends EntityHelper implements IForgot {

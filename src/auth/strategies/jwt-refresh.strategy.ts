@@ -3,7 +3,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
 import { JwtRefreshPayloadType } from './types/jwt-refresh-payload.type';
-import { OrNeverType } from 'shared-kommshop-types';
+import { OrNeverType } from 'kommshop-types';
 import { AllConfigType } from 'src/config/config.type';
 
 @Injectable()

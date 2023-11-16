@@ -1,8 +1,8 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Allow, IsNumber } from 'class-validator';
-import { EntityHelper } from 'src/utils/entity-helper';
-import { Role as IRole } from 'shared-kommshop-types';
+import { EntityHelper } from '@/utils/entity-helper';
+import { Role as IRole } from 'kommshop-types';
 
 @Entity()
 export class Role extends EntityHelper implements IRole {

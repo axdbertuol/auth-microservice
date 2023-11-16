@@ -10,7 +10,7 @@ import { Allow } from 'class-validator';
 import { EntityHelper } from 'src/utils/entity-helper';
 import appConfig from '../../config/app.config';
 import { AppConfig } from 'src/config/config.type';
-import { FileEntity as IFileEntity } from 'shared-kommshop-types';
+import { FileEntity as IFileEntity } from 'kommshop-types';
 
 @Entity({ name: 'file' })
 export class FileEntity extends EntityHelper implements IFileEntity {

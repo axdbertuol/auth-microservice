@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
-import { AuthResetPasswordDto as IAuthResetPasswordDto } from 'shared-kommshop-types';
+import { AuthResetPasswordDto as IAuthResetPasswordDto } from 'kommshop-types';
 
 export class AuthResetPasswordDto implements IAuthResetPasswordDto {
   @ApiProperty()

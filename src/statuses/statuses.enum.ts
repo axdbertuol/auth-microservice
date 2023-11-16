@@ -1,3 +1,3 @@
-import { StatusEnum } from 'shared-kommshop-enum';
+import { StatusEnum } from 'kommshop-types';
 
 export { StatusEnum };

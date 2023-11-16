@@ -19,9 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "shared-kommshop-types": ["./node_modules/kommshop-types/src/"],
-      "shared-kommshop-enum": ["./node_modules/kommshop-types/src/enum.ts"]
+      "@/*": ["./src/*"]
     }
   }
 }

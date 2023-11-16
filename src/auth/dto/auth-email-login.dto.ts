@@ -3,7 +3,7 @@ import { IsNotEmpty, Validate } from 'class-validator';
 import { IsExist } from 'src/utils/validators/is-exists.validator';
 import { Transform } from 'class-transformer';
 import { lowerCaseTransformer } from 'src/utils/transformers/lower-case.transformer';
-import { AuthEmailLoginDto as IAuthEmailLoginDto } from 'shared-kommshop-types';
+import { AuthEmailLoginDto as IAuthEmailLoginDto } from 'kommshop-types';
 
 export class AuthEmailLoginDto implements IAuthEmailLoginDto {
   @ApiProperty({ example: 'test1@example.com' })

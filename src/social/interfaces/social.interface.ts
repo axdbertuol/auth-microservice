@@ -1,3 +1,3 @@
-import { Social as ISocial } from 'shared-kommshop-types';
+import { Social as ISocial } from 'kommshop-types';
 
 export interface SocialInterface extends ISocial {}

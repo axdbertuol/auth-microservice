@@ -23,7 +23,7 @@ import { AuthRegisterLoginDto } from './dto/auth-register-login.dto';
 import { UsersService } from 'src/users/users.service';
 import { ForgotService } from 'src/forgot/forgot.service';
 import { MailService } from 'src/mail/mail.service';
-import { NullableType } from 'shared-kommshop-types';
+import { NullableType } from 'kommshop-types';
 import { LoginResponseType } from './types/login-response.type';
 import { ConfigService } from '@nestjs/config';
 import { AllConfigType } from 'src/config/config.type';

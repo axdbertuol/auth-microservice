@@ -1,6 +1,6 @@
 import { instanceToPlain } from 'class-transformer';
 import { AfterLoad, BaseEntity } from 'typeorm';
-import { IEntityHelper } from 'shared-kommshop-types';
+import { IEntityHelper } from 'kommshop-types';
 
 export class EntityHelper extends BaseEntity implements IEntityHelper {
   __entity?: string;

@@ -13,7 +13,7 @@ import { IsNotExist } from 'src/utils/validators/is-not-exists.validator';
 import { FileEntity } from 'src/files/entities/file.entity';
 import { IsExist } from 'src/utils/validators/is-exists.validator';
 import { lowerCaseTransformer } from 'src/utils/transformers/lower-case.transformer';
-import { CreateUserDto as ICreateUserDto } from 'shared-kommshop-types';
+import { CreateUserDto as ICreateUserDto } from 'kommshop-types';
 
 export class CreateUserDto implements ICreateUserDto {
   @ApiProperty({ example: 'test1@example.com' })

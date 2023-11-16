@@ -15,10 +15,10 @@ import { Role } from '../../roles/entities/role.entity';
 import { Status } from '../../statuses/entities/status.entity';
 import { FileEntity } from '../../files/entities/file.entity';
 import bcrypt from 'bcryptjs';
-import { EntityHelper } from 'src/utils/entity-helper';
+import { EntityHelper } from '@/utils/entity-helper';
 import { AuthProvidersEnum } from 'src/auth/auth-providers.enum';
 import { Exclude, Expose } from 'class-transformer';
-import { User as IUser } from 'shared-kommshop-types';
+import { User as IUser } from 'kommshop-types';
 
 @Entity()
 export class User extends EntityHelper implements IUser {
@@ -62,11 +62,11 @@ export class User extends EntityHelper implements IUser {
   socialId: string | null;
 
   @Index()
-  @Column({ type: String, nullable: true })
+  @Column({ type: String, nullable: true, default: null })
   firstName: string | null;
 
   @Index()
-  @Column({ type: String, nullable: true })
+  @Column({ type: String, nullable: true, default: null })
   lastName: string | null;
 
   @ManyToOne(() => FileEntity, {

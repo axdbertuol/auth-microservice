@@ -2,7 +2,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
-import { OrNeverType } from 'shared-kommshop-types';
+import { OrNeverType } from 'kommshop-types';
 import { AllConfigType } from 'src/config/config.type';
 import { JwtPayloadType } from './types/jwt-payload.type';
 

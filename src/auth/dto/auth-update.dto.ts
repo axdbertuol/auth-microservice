@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional, MinLength, Validate } from 'class-validator';
 import { IsExist } from '../../utils/validators/is-exists.validator';
 import { FileEntity } from '../../files/entities/file.entity';
-import { AuthUpdateDto as IAuthUpdateDto } from 'shared-kommshop-types';
+import { AuthUpdateDto as IAuthUpdateDto } from 'kommshop-types';
 
 export class AuthUpdateDto implements IAuthUpdateDto {
   @ApiProperty({ type: () => FileEntity })

@@ -1,2 +1,2 @@
-import { RoleEnum } from 'shared-kommshop-enum';
+import { RoleEnum } from 'kommshop-types';
 export { RoleEnum };

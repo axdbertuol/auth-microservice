@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { I18nContext } from 'nestjs-i18n';
 import { MailData } from './interfaces/mail-data.interface';
 import { AllConfigType } from 'src/config/config.type';
-import { MaybeType } from 'shared-kommshop-types';
+import { MaybeType } from 'kommshop-types';
 import { MailerService } from 'src/mailer/mailer.service';
 import path from 'path';
 
@@ -29,6 +29,7 @@ export class MailService {
         i18n.t('confirm-email.text3'),
       ]);
     }
+    console.log(mailData);
 
     await this.mailerService.sendMail({
       to: mailData.to,

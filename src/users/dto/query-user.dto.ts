@@ -10,9 +10,9 @@ import { Transform, Type, plainToInstance } from 'class-transformer';
 import { User } from '../entities/user.entity';
 import {
   FilterUserDto as IFilterUserDto,
-  SortUserDto as ISortUserDto,
-  QueryUserDto as IQueryUserDto,
-} from 'shared-kommshop-types';
+  SortDto,
+  QueryDto,
+} from 'kommshop-types';
 
 export class FilterUserDto implements IFilterUserDto {
   @ApiProperty({ type: Role })
@@ -22,7 +22,7 @@ export class FilterUserDto implements IFilterUserDto {
   roles?: Role[] | null;
 }
 
-export class SortUserDto implements ISortUserDto {
+export class SortUserDto implements SortDto<User> {
   @ApiProperty()
   @IsString()
   orderBy: keyof User;
@@ -32,7 +32,7 @@ export class SortUserDto implements ISortUserDto {
   order: string;
 }
 
-export class QueryUserDto implements IQueryUserDto {
+export class QueryUserDto implements QueryDto<FilterUserDto, SortUserDto> {
   @ApiProperty({
     required: false,
   })

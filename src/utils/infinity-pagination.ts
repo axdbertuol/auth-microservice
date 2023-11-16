@@ -1,7 +1,7 @@
 import {
   IPaginationOptions,
   InfinityPaginationResultType,
-} from 'shared-kommshop-types';
+} from 'kommshop-types';
 
 export const infinityPagination = <T>(
   data: T[],

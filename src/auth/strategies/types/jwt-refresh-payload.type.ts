@@ -1,3 +1,3 @@
-import { JwtRefreshPayloadType } from 'shared-kommshop-types';
+import { JwtRefreshPayloadType } from 'kommshop-types';
 
 export type { JwtRefreshPayloadType };

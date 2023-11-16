@@ -1,2 +1,2 @@
-import { AuthProvidersEnum } from 'shared-kommshop-enum';
+import { AuthProvidersEnum } from 'kommshop-types';
 export { AuthProvidersEnum };

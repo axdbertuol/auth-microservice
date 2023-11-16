@@ -7,7 +7,7 @@ import {
   NullableType,
   IPaginationOptions,
   EntityCondition,
-} from 'shared-kommshop-types';
+} from 'kommshop-types';
 import { FilterUserDto, SortUserDto } from './dto/query-user.dto';
 
 @Injectable()

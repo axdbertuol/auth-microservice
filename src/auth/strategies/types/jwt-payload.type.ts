@@ -1,2 +1,2 @@
-import { JwtPayloadType } from 'shared-kommshop-types';
+import { JwtPayloadType } from 'kommshop-types';
 export type { JwtPayloadType };

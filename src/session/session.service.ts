@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, Not, Repository } from 'typeorm';
 import { Session } from './entities/session.entity';
-import { NullableType, FindOptions } from 'shared-kommshop-types';
+import { NullableType, FindOptions } from 'kommshop-types';
 import { User } from 'src/users/entities/user.entity';
 
 @Injectable()

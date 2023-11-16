@@ -1,2 +1,2 @@
-import { LoginResponseType } from 'shared-kommshop-types';
+import { LoginResponseType } from 'kommshop-types';
 export { LoginResponseType };
