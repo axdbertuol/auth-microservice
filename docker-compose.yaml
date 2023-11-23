@@ -10,11 +10,12 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
 
-  # maildev:
-  #   image: maildev/maildev
-  #   ports:
-  #     - ${MAIL_CLIENT_PORT}:1080
-  #     - ${MAIL_PORT}:1025
+  maildev:
+    image: maildev/maildev
+    command: maildev --outgoing-host ${MAIL_HOST} \ --outgoing-user ${MAIL_USER} \ --outgoing-pass ${MAIL_PASSWORD}
+    ports:
+      - ${MAIL_CLIENT_PORT}:1080
+      - ${MAIL_PORT}:1025
 
   adminer:
     image: adminer

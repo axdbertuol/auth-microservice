@@ -69,19 +69,21 @@ describe('Auth user (e2e)', () => {
   });
 
   it('Confirm email: /api/v1/auth/email/confirm (POST)', async () => {
+    console.log('mail:confirm', mail);
     const hash = await request(mail)
       .get('/email')
-      .then(
-        ({ body }) =>
-          body
-            .find(
-              (letter) =>
-                letter.to[0].address.toLowerCase() ===
-                  newUserEmail.toLowerCase() &&
-                /.*confirm\-email\?hash\=(\w+).*/g.test(letter.text),
-            )
-            ?.text.replace(/.*confirm\-email\?hash\=(\w+).*/g, '$1'),
-      );
+      .then(({ body }) => {
+        console.log('mybody', body);
+        return body
+          .find(
+            (letter) =>
+              letter.to[0].address.toLowerCase() ===
+                newUserEmail.toLowerCase() &&
+              /.*confirm\-email\?hash\=(\w+).*/g.test(letter.text),
+          )
+          ?.text.replace(/.*confirm\-email\?hash\=(\w+).*/g, '$1');
+      });
+    console.log('myhash', hash);
 
     return request(app)
       .post('/api/v1/auth/email/confirm')

@@ -5,3 +5,5 @@ export const ADMIN_EMAIL = 'admin@example.com';
 export const ADMIN_PASSWORD = 'secret';
 export const MAIL_HOST = process.env.MAIL_HOST;
 export const MAIL_PORT = process.env.MAIL_CLIENT_PORT;
+export const MAIL_USER = process.env.MAIL_USER;
+export const MAIL_PASSWORD = process.env.MAIL_PASSWORD;

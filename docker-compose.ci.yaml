@@ -11,12 +11,11 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
 
   maildev:
-    build:
-      context: .
-      dockerfile: maildev.Dockerfile
-    expose:
-      - 1080
-      - 1025
+    image: maildev/maildev
+    command: maildev --outgoing-host ${MAIL_HOST} \ --outgoing-user ${MAIL_USER} \ --outgoing-pass ${MAIL_PASSWORD}
+    ports:
+      - ${MAIL_CLIENT_PORT}:1080
+      - ${MAIL_PORT}:1025
 
   # Uncomment to use redis
   # redis:
@@ -28,7 +27,6 @@ services:
     build:
       context: .
       dockerfile: e2e.Dockerfile
-
 
 volumes:
   boilerplate-db:

@@ -99,6 +99,9 @@ export class AuthController {
   }
 
   @ApiBearerAuth()
+  @SerializeOptions({
+    groups: ['me'],
+  })
   @Post('logout')
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.NO_CONTENT)
