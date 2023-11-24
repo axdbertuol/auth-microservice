@@ -11,9 +11,8 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
 
   maildev:
-    build:
-      context: .
-      dockerfile: maildev.Dockerfile
+    image: maildev/maildev
+    command: maildev --outgoing-host ${MAIL_HOST} \ --outgoing-user ${MAIL_USER} \ --outgoing-pass ${MAIL_PASSWORD}
     ports:
       - ${MAIL_CLIENT_PORT}:1080
       - ${MAIL_PORT}:1025
@@ -34,6 +33,8 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
+    env_file:
+      - .env.development
     restart: always
     ports:
       - ${APP_PORT}:${APP_PORT}
