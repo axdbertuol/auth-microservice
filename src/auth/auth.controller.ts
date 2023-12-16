@@ -22,7 +22,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { AuthRegisterLoginDto } from './dto/auth-register-login.dto';
 import { LoginResponseType } from './types/login-response.type';
 import { User } from '../users/entities/user.entity';
-import { NullableType } from 'kommshop-types';
+import { JwtPayloadType, NullableType } from 'kommshop-types';
+import { Request as ExpRequest } from 'express';
 
 @ApiTags('Auth')
 @Controller({
@@ -45,7 +46,9 @@ export class AuthController {
 
   @Post('email/register')
   @HttpCode(HttpStatus.NO_CONTENT)
-  async register(@Body() createUserDto: AuthRegisterLoginDto): Promise<void> {
+  async register(@Body() createUserDto: AuthRegisterLoginDto): Promise<void | {
+    id: number;
+  }> {
     return this.service.register(createUserDto);
   }
 
@@ -75,13 +78,25 @@ export class AuthController {
   }
 
   @ApiBearerAuth()
+  @Get('/check-token')
+  @UseGuards(AuthGuard('jwt'))
+  @HttpCode(HttpStatus.OK)
+  public checkToken(): Promise<void> {
+    return new Promise<void>((resolve) => {
+      resolve();
+    });
+  }
+
+  @ApiBearerAuth()
   @SerializeOptions({
     groups: ['me'],
   })
   @Get('me')
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.OK)
-  public me(@Request() request): Promise<NullableType<User>> {
+  public me(
+    @Request() request: ExpRequest & { user: JwtPayloadType },
+  ): Promise<NullableType<User>> {
     return this.service.me(request.user);
   }
 
@@ -92,21 +107,23 @@ export class AuthController {
   @Post('refresh')
   @UseGuards(AuthGuard('jwt-refresh'))
   @HttpCode(HttpStatus.OK)
-  public refresh(@Request() request): Promise<Omit<LoginResponseType, 'user'>> {
+  public refresh(
+    @Request() request: ExpRequest & { user: JwtPayloadType },
+  ): Promise<Omit<LoginResponseType, 'user'>> {
     return this.service.refreshToken({
       sessionId: request.user.sessionId,
     });
   }
 
-  @ApiBearerAuth()
-  @SerializeOptions({
-    groups: ['me'],
-  })
-  @Post('logout')
   @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @Post('logout')
   @HttpCode(HttpStatus.NO_CONTENT)
-  public async logout(@Request() request): Promise<void> {
-    await this.service.logout({
+  public async logout(
+    @Request() request: ExpRequest & { user: { sessionId: number } },
+  ): Promise<void> {
+    console.log('logout', request);
+    return this.service.logout({
       sessionId: request.user.sessionId,
     });
   }
@@ -129,7 +146,9 @@ export class AuthController {
   @Delete('me')
   @UseGuards(AuthGuard('jwt'))
   @HttpCode(HttpStatus.NO_CONTENT)
-  public async delete(@Request() request): Promise<void> {
+  public async delete(
+    @Request() request: ExpRequest & { user: User },
+  ): Promise<void> {
     return this.service.softDelete(request.user);
   }
 }

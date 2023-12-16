@@ -11,6 +11,8 @@ import { IsExist } from '../utils/validators/is-exists.validator';
 import { IsNotExist } from '../utils/validators/is-not-exists.validator';
 import { SessionModule } from '../session/session.module';
 import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
+import { ConfigService } from '@nestjs/config';
+import { AllConfigType } from '@/config/config.type';
 
 @Module({
   imports: [
@@ -18,7 +20,18 @@ import { JwtRefreshStrategy } from './strategies/jwt-refresh.strategy';
     SessionModule,
     PassportModule,
     MailModule,
-    JwtModule.register({}),
+    JwtModule.registerAsync({
+      inject: [ConfigService<AllConfigType>],
+      useFactory(configService: ConfigService<AllConfigType>) {
+        const auth = configService.get('auth', { infer: true });
+        return {
+          secret: auth?.secret,
+          signOptions: {
+            expiresIn: auth?.expires,
+          },
+        };
+      },
+    }),
   ],
   controllers: [AuthController],
   providers: [
