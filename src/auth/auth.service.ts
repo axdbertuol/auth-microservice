@@ -192,13 +192,16 @@ export class AuthService {
     };
   }
 
-  async register(dto: AuthRegisterLoginDto): Promise<void> {
+  async register(
+    dto: AuthRegisterLoginDto,
+    returnId?: boolean,
+  ): Promise<{ id: number } | void> {
     const hash = crypto
       .createHash('sha256')
       .update(randomStringGenerator())
       .digest('hex');
 
-    await this.usersService.create({
+    const { id } = await this.usersService.create({
       ...dto,
       email: dto.email,
       role: {
@@ -216,6 +219,9 @@ export class AuthService {
         hash,
       },
     });
+    if (returnId) {
+      return { id };
+    }
   }
 
   async confirmEmail(hash: string): Promise<void> {
@@ -424,7 +430,7 @@ export class AuthService {
     const tokenExpires = Date.now() + ms(tokenExpiresIn);
 
     const [token, refreshToken] = await Promise.all([
-      await this.jwtService.signAsync(
+      this.jwtService.signAsync(
         {
           id: data.id,
           role: data.role,
@@ -435,7 +441,7 @@ export class AuthService {
           expiresIn: tokenExpiresIn,
         },
       ),
-      await this.jwtService.signAsync(
+      this.jwtService.signAsync(
         {
           sessionId: data.sessionId,
         },

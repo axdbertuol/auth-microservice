@@ -20,6 +20,8 @@ RUN sed -i 's/\r//g' /opt/startup.dev.sh
 
 WORKDIR /home/node/app
 RUN if [ ! -f .env ]; then cp env-example .env; fi
+ENV MAIL_HOST=maildev
+ENV DATABASE_HOST=postgres
 RUN pnpm build
 
 CMD ["/opt/startup.dev.sh"]
