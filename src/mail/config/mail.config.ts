@@ -1,5 +1,5 @@
 import { registerAs } from '@nestjs/config';
-import { MailConfig } from './config.type';
+import { MailConfig } from 'src/mail/config/mail-config.type';
 import {
   IsString,
   IsInt,
@@ -9,7 +9,7 @@ import {
   IsBoolean,
   IsEmail,
 } from 'class-validator';
-import validateConfig from 'src/utils/validate-config';
+import validateConfig from '../../utils/validate-config';
 
 class EnvironmentVariablesValidator {
   @IsInt()

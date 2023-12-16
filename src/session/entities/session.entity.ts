@@ -7,7 +7,7 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
-import { EntityHelper } from 'src/utils/entity-helper';
+import { EntityHelper } from '../../utils/entity-helper';
 import { Session as ISession } from 'kommshop-types';
 
 @Entity()

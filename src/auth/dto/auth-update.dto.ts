@@ -31,5 +31,5 @@ export class AuthUpdateDto implements IAuthUpdateDto {
   @ApiProperty()
   @IsOptional()
   @IsNotEmpty({ message: 'mustBeNotEmpty' })
-  oldPassword: string;
+  oldPassword?: string;
 }

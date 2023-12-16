@@ -1,4 +1,4 @@
-FROM node:18.18.2-alpine
+FROM node:20.10.0-alpine
 
 RUN apk add --no-cache bash git openssh-client
 RUN npm i -g pnpm

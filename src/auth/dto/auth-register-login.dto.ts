@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, MinLength, Validate } from 'class-validator';
-import { IsNotExist } from 'src/utils/validators/is-not-exists.validator';
+import { IsNotExist } from '../../utils/validators/is-not-exists.validator';
 import { Transform } from 'class-transformer';
-import { lowerCaseTransformer } from 'src/utils/transformers/lower-case.transformer';
+import { lowerCaseTransformer } from '../../utils/transformers/lower-case.transformer';
 import { AuthRegisterLoginDto as IAuthRegisterLoginDto } from 'kommshop-types';
 
 export class AuthRegisterLoginDto implements IAuthRegisterLoginDto {

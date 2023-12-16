@@ -72,18 +72,17 @@ describe('Auth user (e2e)', () => {
     console.log('mail:confirm', mail);
     const hash = await request(mail)
       .get('/email')
-      .then(({ body }) => {
-        console.log('mybody', body);
-        return body
-          .find(
-            (letter) =>
-              letter.to[0].address.toLowerCase() ===
-                newUserEmail.toLowerCase() &&
-              /.*confirm\-email\?hash\=(\w+).*/g.test(letter.text),
-          )
-          ?.text.replace(/.*confirm\-email\?hash\=(\w+).*/g, '$1');
-      });
-    console.log('myhash', hash);
+      .then(
+        ({ body }) =>
+          body
+            .find(
+              (letter) =>
+                letter.to[0].address.toLowerCase() ===
+                  newUserEmail.toLowerCase() &&
+                /.*confirm\-email\?hash\=(\S+).*/g.test(letter.text),
+            )
+            ?.text.replace(/.*confirm\-email\?hash\=(\S+).*/g, '$1'),
+      );
 
     return request(app)
       .post('/api/v1/auth/email/confirm')
@@ -103,9 +102,9 @@ describe('Auth user (e2e)', () => {
               (letter) =>
                 letter.to[0].address.toLowerCase() ===
                   newUserEmail.toLowerCase() &&
-                /.*confirm\-email\?hash\=(\w+).*/g.test(letter.text),
+                /.*confirm\-email\?hash\=(\S+).*/g.test(letter.text),
             )
-            ?.text.replace(/.*confirm\-email\?hash\=(\w+).*/g, '$1'),
+            ?.text.replace(/.*confirm\-email\?hash\=(\S+).*/g, '$1'),
       );
 
     return request(app)
